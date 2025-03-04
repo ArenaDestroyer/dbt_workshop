@@ -1,7 +1,3 @@
-SELECT
-    id as customer_id,
-    first_name,
-    last_name
+select id as customer_id, first_name, last_name, {{ add_etl_timestamp() }}
 
-FROM
-    {{ source('jaffle_shop', 'customers') }}
+from {{ source('jaffle_shop', 'customers') }}

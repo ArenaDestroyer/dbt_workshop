@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_jaffle_shop__payments
+  - name: stg_stripe__payments
     description: This model cleans up payments data
     columns:
       - name: payment_id
