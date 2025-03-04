@@ -13,11 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code and fetch all branches
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Ensure the full history is fetched, not just the last commit
+          submodules: false
 
       # Set up Python environment
       - name: Set up Python
@@ -34,11 +33,9 @@ jobs:
           pip install -r requirements.txt
           pre-commit install --install-hooks
 
-      # Fetch the main branch to ensure it's available for comparison
       - name: Fetch main branch
         run: git fetch origin main
 
-      # Run pre-commit on all files changed between the current branch and main
       - name: Run pre-commit on all changed files
         run: |
           . venv/bin/activate
